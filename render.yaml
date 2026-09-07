@@ -1,0 +1,24 @@
+# Render "Blueprint" — lets Render create this service automatically from
+# render.yaml instead of you clicking through every setting by hand.
+# In the Render dashboard: New > Blueprint > point it at this repo.
+#
+# This defines a Web Service (not a Background Worker) on purpose: Render's
+# free plan only offers Web Services, and a Discord bot's gateway connection
+# runs fine inside one as long as something also answers HTTP requests
+# (index.js starts a tiny Express server for exactly this reason). See
+# README.md for the free-tier keep-alive caveat and the paid alternative.
+services:
+  - type: web
+    name: survivor-forge-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: CLIENT_ID
+        sync: false
+      - key: GUILD_ID
+        sync: false

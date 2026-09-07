@@ -1,0 +1,19 @@
+{
+  "name": "survivor-forge-bot",
+  "version": "1.0.0",
+  "description": "Discord bot character builder for Bubba's Guide to the Zombie Apocalypse",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "deploy-commands": "node deploy-commands.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "discord.js": "14.27.0",
+    "dotenv": "17.4.2",
+    "express": "5.2.1"
+  }
+}
